@@ -6,10 +6,10 @@ const router = express.Router();
 
 dotenv.config();
 
-const policyServiceUrl = process.env.POLICY_SERVICE || 'http://localhost:3000'
+const validationServiceUrl = process.env.VALIDATION_SERVICE || 'http://localhost:3002'
 
 router.use('/policy', createProxyMiddleware({
-    target: policyServiceUrl,
+    target: validationServiceUrl,
 }));
-  
+
 export default router;
