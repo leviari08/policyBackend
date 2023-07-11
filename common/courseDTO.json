@@ -1,0 +1,20 @@
+{
+    "courseName": "דור",
+    "policyId": 1,
+    "studentsInCourse": 30,
+    "lectures": [
+        {
+            "numberOfSignatures": 10,
+            "students": [
+                {
+                    "studentId": 5,
+                    "signature": false
+                },
+                {
+                    "studentId": 5,
+                    "signature": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "policyId": 1,
+    "policyName": "a",
+    "policyType": "COURSE_POLICY",
+    "forms": [
+        {
+            "formType": "COURSE_ATTENDANCE_FORM",
+            "validations": [
+                {
+                    "validationType": "TOTAL_ATTENDANCE_PER_LECTURE",
+                    "values": 66
+                },
+                {
+                    "validationType": "MAX_MISSING_SIGNATURES_FOR_STUDENT",
+                    "values": 20
+                }
+            ]
+        }
+    ]
+}
