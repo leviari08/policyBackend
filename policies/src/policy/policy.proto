@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package policy;
+
+service PoliciesService {
+  rpc GetById (PolicyById) returns (Policy) {}
+  rpc GetAll (Empty) returns (PolicyList) {}
+  rpc Create (Policy) returns (Policy) {}
+  rpc Update (Policy) returns (Policy) {}
+  rpc Remove (PolicyById) returns (Empty) {}
+}
+
+message PolicyById {
+  int32 id = 1;
+}
+
+message Empty {}
+
+message PolicyList {
+    repeated Policy policies = 1;
+}
+
+message Policy {
+  int32 id = 1;
+  string name = 2;
+}
