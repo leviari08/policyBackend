@@ -1,11 +1,19 @@
-import express, { Express, Request, Response , Application } from 'express';
 import dotenv from 'dotenv';
+import express, { Application, Request, Response } from 'express';
+import policyRouter from './routes/policy';
+import morgan from 'morgan';
 
-// For env File 
+// config 
 dotenv.config();
 
 const app: Application = express();
 const port = process.env.PORT || 8000;
+
+// logger
+app.use(morgan('dev'));
+
+// routes
+app.use(policyRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Welcome to Express & TypeScript Server');
