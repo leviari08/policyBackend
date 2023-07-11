@@ -14,7 +14,7 @@ export class AppService implements OnModuleInit {
         this.policiesService = this.client.getService<PoliciesService>('PoliciesService');
     }
 
-    getPolicy(): Policy {
-        return this.policiesService.findOne({ id: 1 });
+    getPolicy(): Observable<Policy> {
+        return this.policiesService.findOne({ id: 1 }, null, null);
     }
 }

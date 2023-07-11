@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
+import { PoliciesService } from './controllers/PoliciesService';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { join } from 'path';
       },
     },
   ]),],
-  controllers: [AppController],
+  controllers: [AppController, PoliciesService],
   providers: [AppService],
 })
 export class AppModule {}
