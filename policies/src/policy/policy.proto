@@ -21,6 +21,6 @@ message PolicyList {
 }
 
 message Policy {
-  int32 id = 1;
-  string name = 2;
+   int32 policyId = 1;
+   string policyName = 2;
 }
