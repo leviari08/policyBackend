@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+message Student {
+  int32 studentId = 1;
+  bool signature = 2;
+}
+
+message Lecture {
+  int32 numberOfSignatures = 1;
+  repeated Student students = 2;
+}
+
+message Course {
+  string courseName = 1;
+  int32 policyId = 2;
+  int32 studentsInCourse = 3;
+  repeated Lecture lectures = 4;
+}
+
+enum PolicyType {
+  COURSE_POLICY = 1;
+}
+
+message Policy {
+  int32 policyId = 1;
+  string policyName = 2;
+  PolicyType policyType = 3;
+  repeated Form forms = 4;
+}
+
+enum FormType {
+  COURSE_ATTENDANCE_FORM = 1;
+}
+
+enum ValidationType {
+  TOTAL_ATTENDANCE_PER_LECTURE = 1;
+  MAX_MISSING_SIGNATURES_FOR_STUDENT = 2;
+}
+
+message Validation {
+  ValidationType validationType = 1;
+  int32 value = 2;
+}
+
+message Form {
+  FormType formType = 1;
+  repeated Validation validations = 2;
+}
+
+service YourMessageService {
+  rpc CreateCourse(Course) returns (Response);
+  rpc GetCourse(Request) returns (Course);
+  rpc UpdateCourse(Course) returns (Response);
+  rpc DeleteCourse(Request) returns (Response);
+}
+
+message Request {
+  int32 courseId = 1;
+}
+
+message Response {
+  bool success = 1;
+}
