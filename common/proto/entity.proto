@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package policy;
+
 message Student {
   int32 studentId = 1;
   bool signature = 2;

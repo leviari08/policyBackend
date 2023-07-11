@@ -1,9 +1,9 @@
-import { policy } from './policy/policy';
 import { Controller, Get, Inject } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { AppService } from './app.service';
+import { policy } from './types/entity';
 
-type PoliciesService = policy.PoliciesService;
+type YourMessageService = policy.YourMessageService;
 
 @Controller()
 export class AppController {
@@ -12,10 +12,10 @@ export class AppController {
         @Inject('POLICY_CORE') private client: ClientGrpc
     ) { }
 
-    private service: PoliciesService;
+    private service: YourMessageService;
 
     onModuleInit() {
-        this.service = this.client.getService<PoliciesService>('PoliciesService');
+        this.service = this.client.getService<YourMessageService>('YourMessageService');
     }
 
     @Get()
@@ -25,6 +25,7 @@ export class AppController {
 
     @Get('/all')
     getAll() {
-        return this.service.getAll(null);
+        // return [];
+        return this.service.getCourse({ courseId: 1 });
     }
 }
